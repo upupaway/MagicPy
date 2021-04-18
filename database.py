@@ -79,4 +79,4 @@ class Database:
         self.curr.execute(validate_data, data)
         row = self.curr.fetchall()
         if row[0][0] == inputData[0]:
-            return row[0][1] == bcrypt.hashpw(inputData[1].encode(), row[0][2])
+            return row[0][1] == bcrypt.hashpw(str(inputData[1].encode()), row[0][2])

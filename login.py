@@ -94,7 +94,7 @@ class Register:
         self.username=self.usernameE.get()
         self.password=self.passwordE.get()
         self.salt=bcrypt.gensalt()
-        self.hashed=bcrypt.hashpw(self.password.encode(), self.salt)
+        self.hashed=bcrypt.hashpw(str(self.password.encode()), self.salt)
         data = (self.username,)
 
         result = db.searchData(data)
